@@ -1,3 +1,5 @@
+'use strict';
+
 let answerMoney, answerTime;
 
 //запрашиваю у пользователя дату и бюджет на месяц
@@ -9,7 +11,7 @@ function start() {
    }
 
 }
-start();
+//start();
 
 //объект из третьего задания
 let appData = {
@@ -27,7 +29,7 @@ let appData = {
          if (((typeof (a)) === "string") && ((typeof (a)) != null) && ((typeof (b)) != null) &&
             (a != "") && (b != "") && (a.length < 50) && (isNaN(b) === false)) {
             appData.Expenses[a] = b;
-         } else {
+            'use strict';         } else {
             alert("You enter not valid symbols");
             i--;
          }
@@ -104,7 +106,44 @@ let appData = {
    }
 
 };
-appData.chooseIncome();
-for (let key in appData) {
-   console.log("Наша программа включает в себя данные: " + key + " " + appData[key]);
-}
+//appData.chooseIncome();
+// for (let key in appData) {
+//    console.log("Наша программа включает в себя данные: " + key + " " + appData[key]);
+// }
+
+//Получить кнопку "Начать расчет" через id
+let buttonStartCalc = document.getElementById('start'),
+
+//Получить все блоки в правой части программы через классы (которые имеют класс название-value)
+   budgetValue = document.getElementsByClassName('budget-value')[0],
+   daybudgetValue = document.getElementsByClassName('daybudget-value')[0],
+   levelValue = document.getElementsByClassName("level-value")[0],
+   expensesValue = document.getElementsByClassName('expenses-value')[0],
+   optionalExpValue = document.getElementsByClassName('optionalexpenses-value')[0],
+   incomValue = document.getElementsByClassName('income-value')[0],
+   monthsavingsValue = document.getElementsByClassName('monthsavings-value')[0],
+   yearsavingsValue = document.getElementsByClassName('yearsavings-value')[0];
+
+//поля(input) c обязательными расходами через класс
+let expenses = document.getElementsByClassName('data')[0];
+let expensesItem = document.getElementsByClassName('expenses-item');
+
+
+//Получить кнопки “Утвердить” и “Рассчитать” через Tag
+let expensesItemBtn = document.getElementsByTagName('button')[0];
+let optionalExpensesBtn = document.getElementsByTagName('button')[1];
+let countBudgetBtn = document.getElementsByTagName('button')[2];
+
+//Получить поля для ввода необязательных расходов (optionalexpenses-item) при помощи querySelectorAll
+let optionaEexpensesItems = document.querySelectorAll('.optionalexpenses-item');
+
+//Получить оставшиеся поля через querySelector (статьи возможного дохода, чекбокс, сумма, процент, год, месяц, день)
+let chooseIncome = document.querySelector('.choose-income'),
+   checkSavings = document.querySelector('#savings'),
+   chooseSum = document.querySelector('.choose-sum'),
+   choosePercent = document.querySelector('.choose-percent'),
+   yearValue = document.querySelector('.year-value'),
+   monthValue = document.querySelector('.month-value'),
+   dayValue = document.querySelector('.day-value');
+
+//console.log(checkSavings);
