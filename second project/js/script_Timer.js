@@ -2,7 +2,7 @@ window.addEventListener('DOMContentLoaded', function () {
     'use strict';
 //timer
     //set up data of compaine 
-    let deadLine = '2019-12-29';
+    let deadLine = '2020-01-31';
     //вычисляем разницу между датой акции и сегодняшней для разработки таймера
     function getTimeRemaining(endTime) {
         let t = Date.parse(endTime) - Date.parse(new Date()),
